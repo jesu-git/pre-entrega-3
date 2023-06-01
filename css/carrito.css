@@ -1,0 +1,118 @@
+*{
+    padding:0px;
+    margin: 0px;
+    
+}
+.contenedor{
+    background-color: antiquewhite;
+    padding-left: 300px;
+    padding-right: 300px;
+    justify-content: space-around;
+    display: grid;
+    grid-template-rows:17% 80% 3% ;
+    grid-template-columns:1fr;                    
+                      
+                   
+}
+.imgLogo{
+    width: 100px;
+}
+
+li{
+
+    list-style-type: none;
+}
+
+.navLogo{
+  background-color: white;
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  padding-right: 20px;
+  
+}
+
+.tituloCart{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.btnComprar{
+   display: grid;
+   grid-column: 3/4;
+   grid-row: 3/4;
+
+
+}
+.btnOferta{
+    display: flex;
+    grid-column: 2/3;
+    grid-row: 3/4;
+ 
+ }
+.carritoVacio{
+    height: 200px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2/3
+  
+;
+}
+
+.mostrarCart{
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+.section{
+    display: grid;
+
+}
+.btns{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.divForm{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+#contador{
+    text-decoration: none;
+}
+
+.disabled{
+
+    visibility: hidden;
+    display: none;
+}
+
+
+.producto-grid{
+    display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-template-rows: repeat(auto,100px);
+    grid-gap: 10px;
+}
+  
+  .productoTarjeta {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .total{
+    display: grid;
+    grid-column: 1/3;
+    grid-row: 1/2;
+  }
+
+  
