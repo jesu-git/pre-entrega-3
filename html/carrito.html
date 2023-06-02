@@ -26,21 +26,36 @@
         </nav>
     </header>
     <section class="section">
-     <h2 class="tituloCart">Carrito:</h2>
-     <div class="mostrarCart producto-grid">
-        <p class="carritoVacio disable">Tu carrito esta vacio</p>
+        <div class="titulo">
+            <h2>Carrito</h2>
+        </div>
+     <div class="mostrarCart">
+        <div class="avisoVacio">
+            <p>Tu carrito esta vacio</p>
+        
+        </div>
+    
      </div>
-     <div class="btns">
-      <div class="total">
-
-      </div> 
-     <button type="button" class="btn btn-primary btnOferta disable">Ver ofertas</button>
-     <button type="button" class="btn btn-success btnComprar disable">Comprar ahora</button>
+     <div class="acciones">
+        <div class="accionesizq">
+            <button type="button" id="vaciar" class="btn btn-primary">Vaciar carrito</button>
+        </div>
+        <div class="accionesDer">
+            <div class="totalCarrito">
+            <p>Total:</p>
+            <div>
+                <p class="montoTotal">0</p>
+            </div>
+           
+            </div>
+        </div>
+        <button type="button"  class="btn btn-success comprar ">Comprar carrito</button>
     </div>
     </section>
 
     <footer class="footer"></footer>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/carrito.js"></script>
 </body>
 </html>

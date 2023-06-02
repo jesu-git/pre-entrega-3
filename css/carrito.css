@@ -9,8 +9,9 @@
     padding-right: 300px;
     justify-content: space-around;
     display: grid;
-    grid-template-rows:17% 80% 3% ;
-    grid-template-columns:1fr;                    
+    grid-template-rows:8% 50%  ;
+    grid-template-columns: 1fr; 
+    height: 1000px;               
                       
                    
 }
@@ -70,20 +71,56 @@ li{
 }
 .section{
     display: grid;
+    grid-template-rows:10% 80% 10% ;
 
 }
-.btns{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+.titulo{
+    display: flex;
+    justify-content: center;
 }
+.avisoVacio{
+    visibility: hidden;
+    display:none
+}
+.mostrarCart{
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.objNuevo{
+    display:flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 1rem;
+    padding: .5rem;
+    align-items: center;
+    padding-right: 1.5;
+
+
+}
+.acciones{
+     display: flex;
+     justify-content: space-around;
+}
+.accionesDer{
+    display: flex;
+
+}
+.accionesIzq{
+    display: flex;
+    
+}
+.totalCarrito{
+    display: flex;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
 .divForm{
     display: grid;
     justify-content: center;
     align-items: center;
-}
-#contador{
-    text-decoration: none;
 }
 
 .disabled{
@@ -95,7 +132,6 @@ li{
 
 .producto-grid{
     display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
    grid-template-rows: repeat(auto,100px);
     grid-gap: 10px;
 }
@@ -109,11 +145,7 @@ li{
     transition: box-shadow 0.3s ease;
   }
 
-  .total{
-    display: grid;
-    grid-column: 1/3;
-    grid-row: 1/2;
-  }
+ 
 
 
   

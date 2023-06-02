@@ -78,14 +78,14 @@ if(carritoLs){
 else{
     carrito = [];
 }
-
 function porConstructor(){
     combos.forEach((x)=>{bd.push(new ingreso(x.nombre,x.precio,x.bebida,x.id))})   
 }
 function cargarArticulos(){
+    sectionMostrar.innerHTML="";
     bd.forEach((articulo)=>{
         const{nombre,precio,bebida,id} = articulo;
-        const div = document.createElement("div");
+        let div = document.createElement("div");
         div.classList.add("articulos");
         div.innerHTML = `
         <h3>${nombre}</h3>
@@ -105,11 +105,10 @@ function agregarAcarrito(e){
     const id = e.currentTarget.id;
     const articuloPedido = bd.find(x => x.id === id);
      carrito.push(articuloPedido)
-   
     localStorage.setItem("ProductosCarrito",JSON.stringify(carrito))
 }
-function agregarArticulo(e){
-    e.preventDefault();
+function agregarArticulo(event){
+    event.preventDefault();
     bd.innerHTML = "";
     nombre = nombreInput.value
     precio = precioInput.value
@@ -117,11 +116,12 @@ function agregarArticulo(e){
     id = idInput.value
     let articulo = new ingreso(nombre,precio,bebida,id);
     bd.push(articulo)
+    sectionMostrar.innerHTML="";
     cargarArticulos()
 
 }
-
-
 porConstructor()
 cargarArticulos()
-console.log(contador)
+
+
+
