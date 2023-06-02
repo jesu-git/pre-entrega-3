@@ -100,7 +100,7 @@ li{
     grid-gap: 10px;
 }
   
-  .productoTarjeta {
+  .articulos {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -114,5 +114,6 @@ li{
     grid-column: 1/3;
     grid-row: 1/2;
   }
+
 
   

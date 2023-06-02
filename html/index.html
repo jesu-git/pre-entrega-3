@@ -1,12 +1,13 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/estilo.css">
-  <script src="../js/popper.min.js"></script>
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
   <title>Sabor a rico</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="contenedor">
@@ -40,10 +41,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Categorias</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="agregar.html">Agregar un producto</a>
+            <a class="nav-link" href="agregar.html">Categorias</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="buscar.html">buscar</a>
@@ -67,7 +65,7 @@
         <input class="PrecioInputs" type="number" id="precio" name="Precio" min="0"><br><br>
 
         <label for="bebida">bebida:</label><br>
-        <select class="bebidaSelect" id="bebida" name="plazo"><br><br>
+        <select class="bebidaSelect" id="bebida" name="bebida"><br><br>
             <option value="con bebida">Con bebida</option>
             <option value="sin bebida">Sin bebida</option>
         </select><br><br>
@@ -75,11 +73,12 @@
 
         <input class="idInputs" type="text" id="id" name="id" min="0"><br><br>
 
-        <button type="submit"id="btnAgregar" class="btn btn-danger">Agregar</button>
+        <button type="button" id="a" class="btn btn-success btnComprar disable">Comprar ahora</button>
         
     </form>
     </div>
 </div>
+
   <script src="../js/pre-entrega-3.js"></script>
 </body>
 </html>

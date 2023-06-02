@@ -1,20 +1,22 @@
 
-const sectionMostrar = document.querySelector("#sectionMostrar");
+let sectionMostrar = document.querySelector("#sectionMostrar");
 let btnComprar = document.querySelectorAll(".btnComprar");
-const contador = document.querySelector("#contador")
-const nombre=document.querySelector("#nombre")
-const precio=document.querySelector("#precio")
-const bebida=document.querySelector("#bebida")
-const id=document.querySelector("#id")
-const btnAgregar=document.querySelector("#btnAgregar")
+let contador = document.querySelector("#contador");
+const nombreInput = document.querySelector("#nombre");
+const precioInput = document.querySelector("#precio");
+const bebidaInput = document.querySelector("#bebida");
+const idInput = document.querySelector("#id");
+const a = document.getElementById("a");
 
+a.addEventListener("click",agregarArticulo);
 
+console.log(a)
 class ingreso {
     constructor(nombre,precio,bebida,id){
         this.nombre = nombre;
         this.precio = precio;
         this.bebida = bebida;
-        this.id     = id
+        this.id     = id;
     }
  }
  // Array de obj pre-cargados
@@ -65,71 +67,61 @@ class ingreso {
     id:"papas(06)"
    },
  ]
-let porContructor = []//Array donde se pasaran los obj despues de ser pasados por function objPorContructor() o los nuevos obj a ingresar
+let bd = []//Array donde se pasaran los obj despues de ser pasados por function objPorContructor() o los nuevos obj a ingresar
+
 let carrito;
-const carritoLs = JSON.parse(localStorage.getItem("ProductosCarrito")); 
+let carritoLs = localStorage.getItem("ProductosCarrito"); 
 
 if(carritoLs){
-    carrito = carritoLs;
+    carrito = JSON.parse(carritoLs);
 }
 else{
     carrito = [];
 }
 
 function porConstructor(){
-    combos.forEach((x)=>{porContructor.push(new ingreso(x.nombre,x.precio,x.bebida,x.id))})
-    
+    combos.forEach((x)=>{bd.push(new ingreso(x.nombre,x.precio,x.bebida,x.id))})   
 }
-
-function mostrarProductos(){
-        porContructor.forEach(x =>{
-        const{nombre,precio,bebida,id} = x;
-        sectionMostrar.innerHTML += `
-        <div class="productoTarjeta">
-         <h3>${nombre}</h3>
-         <p>$${precio}</p>
-         <p>${bebida}</p>
-         <button type="button" class="btn btn-danger btnComprar"id="${id}">Comprar</button
-</div>`
+function cargarArticulos(){
+    bd.forEach((articulo)=>{
+        const{nombre,precio,bebida,id} = articulo;
+        const div = document.createElement("div");
+        div.classList.add("articulos");
+        div.innerHTML = `
+        <h3>${nombre}</h3>
+        <p>$${precio}</p>
+        <p>${bebida}</p>
+        <button type="button" class="btn btn-danger btnComprar"id="${id}">Comprar</button
+          `;
+          sectionMostrar.append(div) 
     })
     botonesComprar()
 }
-
-porConstructor()
-mostrarProductos()
-
- function botonesComprar(){ 
- btnComprar = document.querySelectorAll(".btnComprar")
- btnComprar.forEach(boton=>{ boton.addEventListener("click",agregarAcarrito)})
- 
-}
-
+function botonesComprar(){ 
+    btnComprar = document.querySelectorAll(".btnComprar")
+    btnComprar.forEach(boton=>{ boton.addEventListener("click",agregarAcarrito)})
+   }
 function agregarAcarrito(e){
     const id = e.currentTarget.id;
-    const articuloPedido = porContructor.find(x => x.id === id);
+    const articuloPedido = bd.find(x => x.id === id);
      carrito.push(articuloPedido)
-    sumarCarrito()
+   
     localStorage.setItem("ProductosCarrito",JSON.stringify(carrito))
 }
+function agregarArticulo(e){
+    e.preventDefault();
+    bd.innerHTML = "";
+    nombre = nombreInput.value
+    precio = precioInput.value
+    bebida = bebidaInput.value
+    id = idInput.value
+    let articulo = new ingreso(nombre,precio,bebida,id);
+    bd.push(articulo)
+    cargarArticulos()
 
-function sumarCarrito(){
-    const numContador =  carrito.reduce((acc,articulo) => acc + articulo.precio,0)
-    const total = localStorage.setItem("totalCompra",JSON.stringify(numContador))
-    
 }
 
 
-btnAgregar.addEventListener("submit",(event)=>{
-    event.defaultPrevented();
-    crear()
-}
-)
- function crear(){
-    const nombre = nombre.value
-    const precio = precio.value
-    const bebida = bebida.value
-    const id = id.value
-    let articulo = new ingreso(nombre.value,precio.value,bebida.value,id.value)
-    porConstructor.push(articulo)
-    console.log(porConstructor)
- }
+porConstructor()
+cargarArticulos()
+console.log(contador)
