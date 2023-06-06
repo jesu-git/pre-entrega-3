@@ -1,26 +1,22 @@
-const carritoVacio = document.querySelector(".carritoVacio");
-const btnComprar = document.querySelector(".btnComprar");
-const btnOferta = document.querySelector(".btnOferta")
+
+
 let carrito = JSON.parse(localStorage.getItem("ProductosCarrito"));
 const mostrar = document.querySelector(".mostrarCart");
 const contenedorP = document.querySelector(".total")
 let eliminarArticulo = document.querySelectorAll(".btnEliminar")
-carrito = JSON.parse(localStorage.getItem("ProductosCarrito"));
 const vaciar = document.querySelector("#vaciar")
 let montoTotal = document.querySelector(".montoTotal")
 let comprar = document.querySelector(".comprar")
 let avisoVacio = document.querySelector(".avisoVacio")
-
+carrito = JSON.parse(localStorage.getItem("ProductosCarrito"));
 
 function cargaPrincipal(){
 
    if(carrito){
 
-    avisoVacio.classList.add("disable")
+   
+   
     
-
-  
-
      mostrar.innerHTML = "";
 
      carrito.forEach((articulo)=>{
@@ -42,7 +38,8 @@ function cargaPrincipal(){
            
 else{
 
-    btnComprar.classList.add("disabled")
+    
+
 }
 }
 function actualizarBtnEliminar(){ 
@@ -53,8 +50,8 @@ function eliminarA(e){
     idBoton = e.currentTarget.id;
     const index = carrito.findIndex(producto => producto.id === idBoton);
     carrito.splice(index,1);
-    cargaPrincipal()
     localStorage.setItem("ProductosCarrito",JSON.stringify(carrito))
+    cargaPrincipal()
 
 }
 function vaciarCarrito(){

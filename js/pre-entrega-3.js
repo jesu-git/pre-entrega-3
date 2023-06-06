@@ -7,15 +7,16 @@ const precioInput = document.querySelector("#precio");
 const bebidaInput = document.querySelector("#bebida");
 const idInput = document.querySelector("#id");
 const a = document.getElementById("a");
+const botonesCategoria = document.querySelectorAll(".botonesCategoria")
 
-a.addEventListener("click",agregarArticulo);
 
 console.log(a)
 class ingreso {
-    constructor(nombre,precio,bebida,id){
+    constructor(nombre,precio,bebida,categoria,id){
         this.nombre = nombre;
         this.precio = precio;
         this.bebida = bebida;
+        this.categoria =categoria;
         this.id     = id;
     }
  }
@@ -26,7 +27,25 @@ class ingreso {
     nombre:"lomo",
     precio:2500,
     bebida: "con bebida",
-    id:"lomo(01)"
+    categoria:"lomo",
+    id:"lomo(01)",
+
+
+   },
+   {  
+    nombre:"lomo palta",
+    precio:2500,
+    bebida: "con bebida",
+    categoria:"lomo",
+    id:"lomo(13)",
+
+
+   },    {  
+    nombre:"lomo completo",
+    precio:2500,
+    bebida: "con bebida",
+    categoria:"lomo",
+    id:"lomo(14)",
 
 
    },
@@ -34,29 +53,69 @@ class ingreso {
     nombre:"hamburguesa",
     precio: 1800,
     bebida:"con bebida",
+    categoria:"hamburguesa",
     id:"hamburguesa(02)"
 
-   },            
+   }, 
+   { 
+    nombre:"hamburguesa cheddar",
+    precio: 1800,
+    bebida:"con bebida",
+    categoria:"hamburguesa",
+    id:"hamburguesa(07)"
+
+   },
+   { 
+    nombre:"hamburguesa sabor",
+    precio: 1800,
+    bebida:"con bebida",
+    categoria:"hamburguesa",
+    id:"hamburguesa(08)"
+
+   },           
     {
     nombre:"pancho",
     precio: 1000,
     bebida:"sin bebida",
+    categoria:"pancho",
     id:"pancho(03)"
     
-   },
+   },{ 
+   nombre:"pancho con poncho",
+   precio: 1000,
+   bebida:"sin bebida",
+   categoria:"pancho",
+   id:"pancho(09)"
+   
+  },
+  { 
+    nombre:"pancho doble salchicha",
+    precio: 1000,
+    bebida:"sin bebida",
+    categoria:"pancho",
+    id:"pancho(10)"
+    
+   },         
    {  
     nombre:"pizza",
     precio: 2500,
-    bebida:"sin bebida" ,
+    bebida:"sin bebida",
+    categoria:"pizza",
     id:"pizza(04)"
+   },
+   {  
+    nombre:"pizza napolitana",
+    precio: 2500,
+    bebida:"sin bebida",
+    categoria:"pizza",
+    id:"pizza(15)"
    },
    {  
     nombre:"pizzas",
     precio: 3500,
     bebida:"con bebida",
-    id:"pizzas(05)"
-   
-
+    categoria:"pizza",
+    id:"pizza(05)"
    },
 
    {
@@ -64,9 +123,29 @@ class ingreso {
     nombre:"papas",
     precio: 1000,
     bebida:"sin bebida",
+    categoria:"papa",
     id:"papas(06)"
    },
+   
+   {
+
+    nombre:"papas verdeo",
+    precio: 1000,
+    bebida:"sin bebida",
+    categoria:"papa",
+    id:"papas(11)"
+   },
+   
+   {
+
+    nombre:"papas panceta",
+    precio: 1000,
+    bebida:"sin bebida",
+    categoria:"papa",
+    id:"papas(12)"
+   },
  ]
+
 let bd = []//Array donde se pasaran los obj despues de ser pasados por function objPorContructor() o los nuevos obj a ingresar
 
 let carrito;
@@ -79,11 +158,11 @@ else{
     carrito = [];
 }
 function porConstructor(){
-    combos.forEach((x)=>{bd.push(new ingreso(x.nombre,x.precio,x.bebida,x.id))})   
+    combos.forEach((x)=>{bd.push(new ingreso(x.nombre,x.precio,x.bebida,x.categoria,x.id))})   
 }
-function cargarArticulos(){
+function cargarArticulos(categoria){
     sectionMostrar.innerHTML="";
-    bd.forEach((articulo)=>{
+    categoria.forEach((articulo)=>{
         const{nombre,precio,bebida,id} = articulo;
         let div = document.createElement("div");
         div.classList.add("articulos");
@@ -107,21 +186,25 @@ function agregarAcarrito(e){
      carrito.push(articuloPedido)
     localStorage.setItem("ProductosCarrito",JSON.stringify(carrito))
 }
-function agregarArticulo(event){
-    event.preventDefault();
-    bd.innerHTML = "";
-    nombre = nombreInput.value
-    precio = precioInput.value
-    bebida = bebidaInput.value
-    id = idInput.value
-    let articulo = new ingreso(nombre,precio,bebida,id);
-    bd.push(articulo)
-    sectionMostrar.innerHTML="";
-    cargarArticulos()
 
-}
+
 porConstructor()
-cargarArticulos()
+cargarArticulos(bd)
+
+
+botonesCategoria.forEach(boton => {
+    boton.addEventListener("click",(e)=>{    
+        if(e.currentTarget.id != "todos"){ 
+        const productosBoton = bd.filter( x => x.categoria === e.currentTarget.id)
+        cargarArticulos(productosBoton)
+        }
+     else if(e.currentTarget.id === "todos"){
+        cargarArticulos(bd)
+        }
+        })})
+    
+    
 
 
 
+   
