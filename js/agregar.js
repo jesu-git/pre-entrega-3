@@ -33,8 +33,10 @@ class ingreso {
     fetch(http)
     .then((res)=> res.json())
     .then((datos)=>{
-       datos.forEach(x =>{bd.push(new ingreso(x.nombre,x.precio,x.bebida))})
+      
+       datos.forEach(x =>{bd.push(new ingreso(x.nombre,x.precio,x.bebida,x.categoria,x.id))})
     })
+  console.log(bd)
 }
 function crearProducto(){
    if(nombreInput.value == "" || precioInput.value == "" || bebidaInput.value == "" || categoriaInput.value == "" ){
@@ -105,7 +107,7 @@ function cargarArticulosEdit(categoria){
 function botonesEditar(){
     const btnEditar = document.querySelectorAll(".btnEdit")
     btnEditar.forEach(x=>{x.addEventListener("click",(e)=>{
-        const producto = bd.find(producto =>{return producto.id == e.currentTarget.id})
+        const producto = bd.find(producto =>{return producto.id == e.currentTarget.id});
         nombreEdit.value = producto.nombre;
         precioEdit.value = producto.precio;
         bebidaEdit.value = producto.bebida;
@@ -157,7 +159,7 @@ btnEnviar.addEventListener("click",(e)=>{
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Yes, modificar!'
       }).then((result) => {
         if (result.isConfirmed) {
             editarP(modificacion)
