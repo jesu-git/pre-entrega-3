@@ -64,21 +64,33 @@ function vaciarCarrito(){
 function actualizarTotal(){
  let acumulado = carrito.reduce((acc,articulo) => acc + articulo.precio,0);
  montoTotal.innerText=`$${acumulado}`
-
 }
 function comprarCarrito(){
 
-    carrito.length = 0;
-    localStorage.setItem("ProductosCarrito",JSON.stringify(carrito));
-     
-Swal.fire({
-    position: 'top-end',
-    icon: 'success',
-    title: 'Su compra se realizo con exito',
-    showConfirmButton: false,
-    timer: 1500
-  })
-    cargaPrincipal()
+    Swal.fire({
+      title: 'Desea comprar el carrito?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si,comprar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        carrito.length = 0;
+        localStorage.setItem("ProductosCarrito",JSON.stringify(carrito));
+        cargaPrincipal()
+
+        Swal.fire(
+          'Comprado!',
+          'Tu compra se ha realizado con exito.',
+          'success'
+        )   
+      }
+    })
+         
+    
+  
+
     
 
 }

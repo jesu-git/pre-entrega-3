@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar producto</title>
+    <link rel="stylesheet" href="../css/carrito.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head> 
+<body>
+    <div class="contenedor">
+    <header class="header">
+        <nav>
+            <ul class="navLogo">
+                <div>
+                    <li><a href="index.html"><img class="imgLogo" src="../fotos-principal/logo.png.png" alt=""></a></li>
+                </div>   
+                <div claas="iconCart">
+                    <li><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                        <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+                      </svg></a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="contenedorForm">
+      <div class="btn-toolbar navAgregar "  aria-label="Toolbar with button groups">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+          <button type="button" class="btn btn-danger botonesCategoria" id="agregarProducto">Agregar Productos</button>
+          <button type="button" class="btn btn-danger botonesCategoria" id="editar">Editar</button>
+          <button type="button" class="btn btn-danger botonesCategoria" id="delete">Eliminar</button>
+        </div>
+      </div>
+        <div class="formAgregar form">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="nombre">
+                <label>Nombre</label>
+                </div>
+              <div class="form-floating">
+                <input type="number" class="form-control" id="precio">
+                <label>Precio</label>
+                  </div>
+                  <div class="form-floating">
+                    <select class="form-select" id="bebida" aria-label="Floating label select example">
+                      <option selected>Selecciona una opcion</option>
+                      <option value="con bebida">Con bebida</option>
+                      <option value="sin bebida">Sin bebida</option>
+                    </select>
+                    <label>Seleccion de bebida</label>
+                  </div>
+                  <div class="form-floating">
+                    <select class="form-select" id="categoria" aria-label="Floating label select example">
+                      <option selected>Selecciona una categoria</option>
+                      <option value="hamburguesa">Hamburguesa</option>
+                      <option value="lomo">Lomo</option>
+                      <option value="pizza">Pizza</option>
+                      <option value="empanada">Empanadas</option>
+                      <option value="papa">Papas</option>
+                      <option value="pancho">Pancho</option>
+                      <option value="otros">Otros</option>
+                    </select>
+                    <label>Seleccion de categoria</label>
+                    </div>
+                    <button type="button" class="btn btn-danger btn-agregar">Cargar</button>
+                  </div>
+                  <div class="formEditar form disable">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nombreEdit">
+                        <label>Nombre</label>
+                        </div>
+                      <div class="form-floating">
+                        <input type="number" class="form-control" id="precioEdit">
+                        <label>Precio</label>
+                          </div>
+                          <div class="form-floating">
+                            <select class="form-select" id="bebidaEdit" aria-label="Floating label select example">
+                              <option selected>Selecciona una opcion</option>
+                              <option value="con bebida">Con bebida</option>
+                              <option value="sin bebida">Sin bebida</option>
+                            </select>
+                            <label>Seleccion de bebida</label>
+                          </div>
+                          <div class="form-floating">
+                            <select class="form-select" id="categoriaEdit" aria-label="Floating label select example">
+                              <option selected>Selecciona una categoria</option>
+                              <option value="hamburguesa">Hamburguesa</option>
+                              <option value="lomo">Lomo</option>
+                              <option value="pizza">Pizza</option>
+                              <option value="empanada">Empanadas</option>
+                              <option value="papa">Papas</option>
+                              <option value="pancho">Pancho</option>
+                              <option value="otros">Otros</option>
+                            </select>
+                            <label>Seleccion de categoria</label>
+                            </div>
+                            <div class="form-floating">
+                              <input type="number" class="form-control" id="idEdit">
+                              <label>Id</label>
+                                </div>
+                            <button type="button" class="btn btn-primary btnEditar">Editar producto</button>
+                          </div>
+                          <div class="mostrarEditar producto-grid">
+
+                          </div>
+                          
+              </div>
+                  </div>
+            <div class="mostrarEditar producto-grid">
+
+            </div>
+            
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/agregar.js"></script>
+      </body>

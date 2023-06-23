@@ -18,12 +18,9 @@
 .imgLogo{
     width: 100px;
 }
-
 li{
-
     list-style-type: none;
 }
-
 .navLogo{
   background-color: white;
   display:flex;
@@ -33,14 +30,12 @@ li{
   padding-right: 20px;
   
 }
-
 .tituloCart{
     display: grid;
     align-items: center;
     justify-content: center;
 
 }
-
 .btnComprar{
    display: grid;
    grid-column: 3/4;
@@ -106,29 +101,54 @@ li{
     padding: 1rem;
     border-radius: 1rem;
 }
-
-.divForm{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-
 .producto-grid{
     display: grid;
-   grid-template-rows: repeat(auto,100px);
-    grid-gap: 10px;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap:10px;
 }
-  
-  .articulos {
+.articulos {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
-  }
+}
+.form{
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 20px;
 
- 
+}
+#tituloAgregar{
 
+    display: flex;
+    justify-content: center;
+}
+.btn-agregar{
+    margin-top: 20px;
+    margin-left: 600px;
+}
+.navAgregar{
+    margin-left: 60px;
+    margin-top: 20px;
+}
+.disable{
+    display: none;
+}
+.btnEditar{
+    margin-left: 600px;
+    margin-top: 10px;
+    
+
+}
+.articulosA{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 10px
+}
+.mostrarEditar{
+    margin-top: 20px;
+}
 
   
