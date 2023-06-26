@@ -7,8 +7,7 @@
 .contenedor{
     background-color:antiquewhite ; 
     justify-content: space-around;
-    display: grid ; 
-                 
+    display: grid ;            
 }
 .header{
     height: 600px;
@@ -69,8 +68,9 @@ li{
    
 }
 
-
-
-
+.footer{
+    background-color: maroon;
+    margin-top: 10px;
+}
   
  
