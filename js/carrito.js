@@ -9,7 +9,7 @@ let montoTotal = document.querySelector(".montoTotal")
 let comprar = document.querySelector(".comprar")
 let avisoVacio = document.querySelector(".avisoVacio")
 carrito = JSON.parse(localStorage.getItem("ProductosCarrito"));
-
+console.log(carrito)
 function cargaPrincipal(){
 
    if(carrito){
@@ -62,7 +62,9 @@ function vaciarCarrito(){
 
 }
 function actualizarTotal(){
- let acumulado = carrito.reduce((acc,articulo) => acc + articulo.precio,0);
+  console.log(carrito)
+ let acumulado = carrito.reduce((x,y)=>x + y.precio,0)
+ console.log(acumulado)
  montoTotal.innerText=`$${acumulado}`
 }
 function comprarCarrito(){
@@ -97,3 +99,4 @@ function comprarCarrito(){
 comprar.addEventListener("click",comprarCarrito);
 vaciar.addEventListener("click",vaciarCarrito);
 cargaPrincipal()
+actualizarTotal()

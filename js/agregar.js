@@ -56,12 +56,18 @@ function crearProducto(){
         confirmButtonText: 'Si, cargar producto!'
       }).then((result) => {
         if (result.isConfirmed) {
-            productoN = new ingreso(nombreInput.value,precioInput.value,bebidaInput.value,categoriaInput.value)
+            productoN = new ingreso(nombreInput.value,parseInt(precioInput.value),bebidaInput.value,categoriaInput.value)
             addBd(productoN)
+          nombreInput.value = "";
+          precioInput.value = "";
+          bebidaInput.value = "";
+          categoriaInput.value ="";
+   
           Swal.fire(
             'Agregado!',
             'Su producto ha sido agregado exitosamente.',
             'success'
+            
           )
         }
       })
